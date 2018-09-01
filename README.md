@@ -1,5 +1,9 @@
 # redshift-sqa-simulator
 
+Rational
+--
+Redshift [SQA](https://docs.aws.amazon.com/redshift/latest/dg/wlm-short-query-acceleration.html) is tricky to repliacte in a test environment. First you need a way to launch concurrent queries. Second the queries that are launched concurrently, need to have a good mix of profiles- short running queries and long running queries. This code will provide you a framework to 1) launch concurrent queries on a pre-configured Redshift cluster in a repeated interval and 2) a set of baseline queries for TPCH data. Additionally this provides a Redshift snapshot pre-loaded with 100G TPCH data that can be made available upon request.
+
 This simulator creates 
 --
   1. A AWS Lambda function in python that launches a SQL query stored in s3. Several queries can be stored in s3, among which only one will be launched randomly at a time.
@@ -8,7 +12,7 @@ This simulator creates
 Pre-requisites:
 --
 
-In order to execute the Lambda function you need a cluster created using the snapshot “rslab-ds2-xl-4n-final” from AWS account 413094830157. Please contact saunak@amazon.com, if you need a copy of the cluster snapshot with sample data.
+In order to execute the Lambda function you need a cluster created using the snapshot “sqa-ds2xl-2n” from AWS account 989581143570. Please contact saunak@amazon.com, if you need a copy of the cluster snapshot with sample data.
 
 Alternatively you can store your sample SQL queries in your own s3 bucket and update the cloudformation template with the s3 path.
 
