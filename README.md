@@ -2,7 +2,7 @@
 
 This simulator creates 
 --
-  1. A AWS Lambda function in python that launches a SQL query stored in s3. Several queries can be stored in s3, among which only one will be launched. 
+  1. A AWS Lambda function in python that launches a SQL query stored in s3. Several queries can be stored in s3, among which only one will be launched randomly at a time.
   2. A AWS Step Function that executes the above AWS Lambda function in parallel.
 
 Pre-requisites:
@@ -162,10 +162,10 @@ To start stack creation using CloudFormation template Click below:
 Resources:
 --
 Following resources will get created after the stack finished execution:
-AWS::Lambda::Function -> Python 2.7 code that connects to a Redshift cluster and launches a query.
-AWS::IAM::Role -> Attached policy AmazonS3ReadOnlyAccess for Lambda execution.
-AWS::StepFunctions::StateMachine -> State machine.
-AWS::IAM::Role -> Allow Lambda invoke.
+* AWS::Lambda::Function -> Python 2.7 code that connects to a Redshift cluster and launches a query.
+* AWS::IAM::Role -> Attached policy AmazonS3ReadOnlyAccess for Lambda execution.
+* AWS::StepFunctions::StateMachine -> State machine.
+* AWS::IAM::Role -> Allow Lambda invoke.
  
 Schedule the State Machine
 --
